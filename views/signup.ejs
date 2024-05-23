@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        input {
+            outline: none;
+            border: none;
+        }
+
+        .btn{
+            background: transparent;
+            color: #000;
+            border  : 1px solid #000;
+            box-shadow: 2px 3px 8px 1px #009da5;
+        }
+        .btn:hover{
+            background: #045155;
+            box-shadow: inset -3px 3px 11px 0px #06124E;
+        }
+    </style>
+</head>
+
+<body>
+    <% if (error === 'true') { %>
+        <script>
+            setTimeout(function () {
+                document.getElementById('errorMessage').style.display = 'none';
+            }, 5000);
+        </script>
+        <div id="errorMessage" class="alert alert-danger" role="alert">
+            Username or Email already exists. Please choose a different username or Email.
+        </div>
+    <% } %>
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div>
+                    <h1 class="text-center">Sign Up</h1>
+                    <hr>
+                </div>
+                <form action="/signup" method="post">
+                    <div class="form-group">
+                        <label for="username" class="text-end">Username</label>
+                        <input type="text" id="username" class="form-control" name="username" required>
+                    </div>
+                    <div class="form-group my-3">
+                        <label for="email" class="text-end ">Email</label>
+                        <input type="email" id="email" class="form-control" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="text-end">Password</label>
+                        <input type="password" id="password" class="form-control input" name="password" required>
+                    </div>
+                    <div class="my-3">
+                        <button class="btn btn-primary" type="submit">Sign Up</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
